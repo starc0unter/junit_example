@@ -6,6 +6,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public final class HamcrestTest {
+
     @Test
     public void givenNumber_whenConditions_thenCorrect() {
         Integer intVal = 7;
@@ -17,5 +18,4 @@ public final class HamcrestTest {
         Integer intVal = 7;
         assertThat(intVal, is(7));
     }
-
 }

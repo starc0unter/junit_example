@@ -8,8 +8,7 @@ import org.junit.runners.model.Statement;
 public final class MyTestRule implements TestRule {
 
     @Override
-    public @NotNull
-    Statement apply(@NotNull Statement base, @NotNull Description description) {
+    public @NotNull Statement apply(@NotNull Statement base, @NotNull Description description) {
         return new Statement() {
             @Override
             public void evaluate() throws Throwable {

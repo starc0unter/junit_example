@@ -13,13 +13,11 @@ import java.util.Collections;
 public final class MockitoTests {
 
     @Mock
-    private @NotNull
-    DataService service;
+    private @NotNull DataService service;
 
 
     @Spy
-    private @NotNull
-    Calculator calculator = new Calculator();
+    private @NotNull Calculator calculator = new Calculator();
 
 
     @Before

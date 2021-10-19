@@ -12,14 +12,14 @@ public final class MainTest {
     MainEntity entity = new MainEntity();
 
     @Test(expected = IllegalArgumentException.class)
-    public void testThrowExeption() {
+    public void testThrowException() {
         double a = 10.5;
         double b = 0;
         double result = entity.devide(a, b);
     }
 
     @Test
-    public void testThrowExeption2() {
+    public void testThrowException2() {
         double a = 10.5;
         double b = 10.5;
         double expected = 12;
@@ -28,7 +28,7 @@ public final class MainTest {
 
     @Ignore("Тест ещё не реализован!!!")
     @Test(expected = IllegalArgumentException.class, timeout = 1000)
-    public void testThrowExeption3() {
+    public void testThrowException3() {
         double a = 10.5;
         double b = 10.5;
         double expected = 1;
