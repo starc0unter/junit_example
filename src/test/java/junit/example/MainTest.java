@@ -8,17 +8,17 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public final class MainTest {
-    private final @NotNull
-    MainEntity entity = new MainEntity();
+    @NotNull
+    private final MainEntity entity = new MainEntity();
 
     @Test(expected = IllegalArgumentException.class)
     public void testThrowException() {
         double a = 10.5;
         double b = 0;
-        double result = entity.devide(a, b);
+        entity.devide(a, b);
     }
 
-    @Test
+    @Test(timeout = 200)
     public void testThrowException2() {
         double a = 10.5;
         double b = 10.5;

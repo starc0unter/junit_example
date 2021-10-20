@@ -13,14 +13,12 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public final class ParamsTest {
 
-
     @SuppressWarnings("PublicField")
     @Parameterized.Parameter
     public @NotNull MyCustomParam param;
 
     @Parameterized.Parameters
-    public static @NotNull
-    Collection<MyCustomParam> dataForTest() {
+    public static @NotNull Collection<MyCustomParam> dataForTest() {
         return Arrays.asList(
                 new MyCustomParam(1, 1, 2),
                 new MyCustomParam(2, 6, 8),

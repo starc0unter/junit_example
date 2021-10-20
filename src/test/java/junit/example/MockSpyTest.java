@@ -2,9 +2,11 @@ package junit.example;
 
 import org.jetbrains.annotations.NotNull;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import java.util.ArrayList;
@@ -19,6 +21,11 @@ public final class MockSpyTest {
 
     @Spy
     private @NotNull List<String> spyList = new ArrayList();
+
+    @Before
+    public void before() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     public void testMockList() {

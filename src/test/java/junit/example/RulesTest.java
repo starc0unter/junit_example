@@ -11,11 +11,9 @@ import static org.hamcrest.CoreMatchers.startsWith;
 public final class RulesTest {
 
     @ClassRule
-    public static final @NotNull
-    MyTestRule rule = new MyTestRule();
+    public static final @NotNull MyTestRule rule = new MyTestRule();
     @Rule
-    public @NotNull
-    ExpectedException thrown = ExpectedException.none();
+    public @NotNull ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void throwsNullPointerExceptionWithMessage() {
