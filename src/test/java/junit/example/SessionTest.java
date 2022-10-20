@@ -1,9 +1,9 @@
 package junit.example;
 
 import org.jetbrains.annotations.NotNull;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoSession;
@@ -16,7 +16,7 @@ public final class SessionTest {
     @NotNull
     private MockitoSession session;
 
-    @Before
+    @BeforeEach
     public void beforeMethod() {
         session = Mockito.mockitoSession()
                 .initMocks(this)
@@ -28,7 +28,7 @@ public final class SessionTest {
         // some code using the dataService field
     }
 
-    @After
+    @AfterEach
     public void afterMethod() {
         session.finishMocking();
     }

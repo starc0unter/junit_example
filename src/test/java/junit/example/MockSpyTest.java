@@ -1,9 +1,11 @@
 package junit.example;
 
 import org.jetbrains.annotations.NotNull;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.jetbrains.annotations.Nullable;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -12,20 +14,36 @@ import org.mockito.Spy;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
+@SuppressWarnings({"NotNullNullableValidation", "MissortedModifiers"})
 public final class MockSpyTest {
     @Mock
     private @NotNull List<String> mockList;
 
     @Spy
-    private @NotNull List<String> spyList = new ArrayList();
+    private @NotNull List<String> spyList = new ArrayList<>();
 
-    @Before
-    public void before() {
-        MockitoAnnotations.initMocks(this);
+    @NotNull
+    private AutoCloseable mocks;
+
+    @Test
+    public void test() {
+        //тут используем mockList и spyList
     }
+
+    @BeforeEach
+    public void before() {
+        mocks = MockitoAnnotations.openMocks(this);
+    }
+
+    @AfterEach
+    public void afterEach() throws Exception {
+        mocks.close();
+        Mockito.reset();
+    }
+
 
     @Test
     public void testMockList() {
@@ -39,7 +57,7 @@ public final class MockSpyTest {
 
     @Test
     public void testSpyList() {
-        //spy-объект вызовет реальным метод, который не был переопределен
+        //spy-объект вызовет реальный метод, который не был переопределен
         spyList.add("test");
 
         Mockito.verify(spyList).add("test");
@@ -47,8 +65,4 @@ public final class MockSpyTest {
         assertEquals("test", spyList.get(0));
     }
 
-    @After
-    public void after() {
-        Mockito.reset();
-    }
 }

@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
 import java.util.List;
 
+@SuppressWarnings("NotNullNullableValidation")
 public interface DataService {
   void saveData(@NotNull List<String> dataToSave);
 
@@ -14,6 +15,7 @@ public interface DataService {
 
   @NotNull List<String> getData();
 
+  @SuppressWarnings("MissortedModifiers")
   final class Dummy implements DataService {
     public static final @NotNull DataService instance = new Dummy();
 

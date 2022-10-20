@@ -1,26 +1,28 @@
 package junit.example;
 
-import org.junit.*;
 
-public final class BasicTest {
-    @BeforeClass
+import org.junit.jupiter.api.*;
+
+@SuppressWarnings("UseOfSystemOutOrSystemErr")
+public final class TestFixtures {
+    @BeforeAll
     public static void runOnceBeforeClass() {
-        System.out.println("@BeforeClass");
+        System.out.println("@BeforeAll");
     }
 
-    @AfterClass
+    @AfterAll
     public static void runOnceAfterClass() {
-        System.out.println("@AfterClass");
+        System.out.println("@AfterAll");
     }
 
-    @Before
+    @BeforeEach
     public void runBeforeTestMethod() {
-        System.out.println("@Before");
+        System.out.println("@BeforeEach");
     }
 
-    @After
+    @AfterEach
     public void runAfterTestMethod() {
-        System.out.println("@After");
+        System.out.println("@AfterEach");
     }
 
     @Test
