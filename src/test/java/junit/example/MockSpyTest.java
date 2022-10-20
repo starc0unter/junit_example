@@ -6,10 +6,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SuppressWarnings({"NotNullNullableValidation", "MissortedModifiers"})
+@ExtendWith(MockitoExtension.class)
 public final class MockSpyTest {
     @Mock
     private @NotNull List<String> mockList;
@@ -32,18 +35,6 @@ public final class MockSpyTest {
     public void test() {
         //тут используем mockList и spyList
     }
-
-    @BeforeEach
-    public void before() {
-        mocks = MockitoAnnotations.openMocks(this);
-    }
-
-    @AfterEach
-    public void afterEach() throws Exception {
-        mocks.close();
-        Mockito.reset();
-    }
-
 
     @Test
     public void testMockList() {
